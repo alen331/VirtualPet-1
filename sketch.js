@@ -39,6 +39,7 @@ function draw() {
   fill("white");
   textSize(20);
   text("Food Left"+foodS,170,150);
+  text("if Food finished then press A key to refill the Food",20,100);
   text("Note: Press F Key to Feed Drago Milk!",100,50);
 
   drawSprites();
