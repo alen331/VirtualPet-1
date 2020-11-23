@@ -30,6 +30,12 @@ function draw() {
     dog.addImage(dogH);
   }
 
+  if(keyWentDown("A")){
+    firebase.database().ref('/').update({
+      Food:20
+    })
+  }
+
   fill("white");
   textSize(20);
   text("Food Left"+foodS,170,150);
@@ -42,17 +48,17 @@ function readStock(data){
   foodS = data.val();
 }
 
-function writeStock(x){
+function writeStock(b){
 
-  if(x<=0){
-    x= 0;
+  if(b<=0){
+    b= 0;
   }
   else{
-    x= x-1;
+    b= b-1;
   }
 
   firebase.database().ref('/').update({
-    Food:x
+    Food:b
   })
 }
 
