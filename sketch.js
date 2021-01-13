@@ -1,6 +1,7 @@
 //Create variables here
 var dog, dogImg, dogH;
-var foodS, foodStock;
+var foodS, foodstock;
+var fedTime, lastFed;
 
 function preload()
 {
@@ -16,8 +17,8 @@ function setup() {
   dog.addImage(dogImg);
   dog.scale=0.2;
 
-  foodStock = firebase.database().ref('Food');
-  foodStock.on("value",readStock);
+  foodstock = firebase.database().ref('Food');
+  foodstock.on("value",readStock);
 }
 
 
@@ -32,7 +33,7 @@ function draw() {
 
   if(keyWentDown("A")){
     firebase.database().ref('/').update({
-      Food:20
+      Food:+20
     })
   }
 
